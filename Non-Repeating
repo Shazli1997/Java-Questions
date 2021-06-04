@@ -1,0 +1,42 @@
+public class nonrep {
+
+public static char findFirst(String input) {
+char x = 'v'; int h=0;
+char[] ch = input.toCharArray();
+a: for (int i=0;i< input.length();i++)
+{
+b: for(int j=0;j<input.length();j++){
+if(ch[i]==ch[j] && i!=j) {
+x = ch[i+1];
+h=0;
+break b;
+}
+else {
+x = ch[i];
+h=1;
+}}
+if(h==1)
+{ break a;
+}}
+return x;
+}
+public static boolean doTestPass() {
+String[] input = {"apple", "racecars", "ababdc"};
+char[] output = {'a', 'e', 'd'};
+boolean result = true;
+for (int i = 0; i < 3; i++) {
+result = result && findFirst(input[i]) == output[i];
+if (!result) {
+System.out.println("Test failed for " + input[i]);
+result = false;
+} else {
+System.out.println("Test passed for " + input[i]);
+result = true;
+}
+}return result;
+}
+public static void main(String[] args)
+{
+doTestPass();
+}
+}
