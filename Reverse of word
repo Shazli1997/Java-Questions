@@ -1,0 +1,35 @@
+public class Reverse {
+
+    public static String reverseString(String str)
+    {          int x=str.length()-1;
+        char[] ch = str.toCharArray();
+        char[] ab = new char[x+1];
+        for (char c : ch) {
+             ab[x] = c;
+            x=x-1;
+        }
+        String xx = String.valueOf(ab);
+        return xx;
+
+    }
+    public static boolean doTestPass()
+    {
+
+        boolean result=true;
+        result=result && reverseString("abcd").equals("dcba");
+        result=result && reverseString("odd abcde").equals("edcba ddo");
+        result=result && reverseString("even abcde").equals("edcba neve");
+        result=result && reverseString("").equals("");
+        return result;
+    }
+    public static void main(String[] args)
+    {
+        if(doTestPass())
+        {
+            System.out.println("All tests pass");}
+        else
+        {
+            System.out.println("Some tests fail");
+        }
+    }
+}
