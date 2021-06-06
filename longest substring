@@ -1,0 +1,56 @@
+import java.util.Arrays;
+
+public class try12 {
+
+    public static int[] longestUniformSubstring(String input)
+    {
+        int f = input.length(); int h= 0,longestStart = 0 ,longestLength = 1,count = 1;
+        char[] ch = input.toCharArray();
+        for(int i =0;i<f;i++) {
+            for(int j =i+1;j<f;j++){
+
+                if(ch[i] == ch[j]) {
+                    count = count + 1;
+
+                }
+
+                }
+            if(longestLength < count){
+                longestLength = count;
+                count = 1;
+                longestStart = i;
+
+            } else {
+
+                count = 1;
+
+            }
+
+        }
+        System.out.println(longestStart + " " + longestLength);
+        return new int[]{longestStart,longestLength};
+    }
+
+
+    public static void main(String[] args) {
+
+        boolean pass=true;
+
+            int[] result = longestUniformSubstring("100001111");
+            int[] result1 = longestUniformSubstring("aabbbbCdAA");
+            pass=pass && (Arrays.equals(result, new int[]{0,5}));
+            pass=pass && (Arrays.equals(result1,new int[]{2,4}));
+
+        if(pass)
+        {
+            System.out.println("all tests pass");
+
+        }
+        else
+        {
+            System.out.println("there is a test failure");
+        }
+    }
+
+
+}
