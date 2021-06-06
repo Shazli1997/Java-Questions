@@ -1,0 +1,35 @@
+public class Progdetec {
+    public static String findMissingLetters(String input) {
+        String output = "";
+
+        char[] ch = input.toCharArray();
+        char[] ap = "abcdefghijklmnopqrstuvwxyz".toCharArray();
+
+        for (int i = 0; i < 26; i++) {
+
+                if (!String.valueOf(ch).contains("q")) {
+
+                    output = output + ap[i];
+
+                }
+
+        }
+        
+        return output;
+    }
+
+    public static void main(String[] args) {
+
+        Boolean success = true;
+        success = success && "".equalsIgnoreCase(findMissingLetters("the quick brown fox jumps over the lazy dog"));
+
+
+        if (success) {
+            System.out.println("All test passed");
+        } else {
+            System.out.println("There is a test failure");
+        }
+
+
+    }
+}
