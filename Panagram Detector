@@ -1,4 +1,20 @@
 public class Progdetec {
+    public static void main(String []args) {
+
+        PangramDetector pd = new PangramDetector();
+        Boolean success = true;
+        success = success && "".equalsIgnoreCase(pd.findMissingLetters("The quick brown fox jumps over the lazy dog"));
+
+
+        if(success) {
+            System.out.println("All test passed");
+        }
+        else {
+            System.out.println("There is a test failure");
+        }
+    }
+} class PangramDetector {
+
     public static String findMissingLetters(String input) {
         String output = "";
 
@@ -7,29 +23,14 @@ public class Progdetec {
 
         for (int i = 0; i < 26; i++) {
 
-                if (!String.valueOf(ch).contains("q")) {
+            if (!String.valueOf(ch).contains("q")) {
 
-                    output = output + ap[i];
+                output = output + ap[i];
 
-                }
+            }
 
         }
-        
+
         return output;
-    }
-
-    public static void main(String[] args) {
-
-        Boolean success = true;
-        success = success && "".equalsIgnoreCase(findMissingLetters("the quick brown fox jumps over the lazy dog"));
-
-
-        if (success) {
-            System.out.println("All test passed");
-        } else {
-            System.out.println("There is a test failure");
-        }
-
-
     }
 }
