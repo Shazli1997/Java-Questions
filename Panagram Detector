@@ -20,12 +20,14 @@ public class Progdetec {
 
         char[] ch = input.toCharArray();
         char[] ap = "abcdefghijklmnopqrstuvwxyz".toCharArray();
+        char find;
 
         for (int i = 0; i < 26; i++) {
+            find =  ap[i];
 
-            if (!String.valueOf(ch).contains("q")) {
+        if ((new String(ch).indexOf(find) == -1)) {
 
-                output = output + ap[i];
+            output = output + find;
 
             }
 
@@ -34,3 +36,5 @@ public class Progdetec {
         return output;
     }
 }
+
+
