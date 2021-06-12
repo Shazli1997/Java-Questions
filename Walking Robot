@@ -56,7 +56,7 @@ public class WalkingRobot {
 
         }
        {
-            String test="ULDDRRUU";
+            String test="UP LEFT 2xDOWN DOWN RIGHT RIGHT UP UP";
             int[] result=walk(test);
             res&=Arrays.equals(result,new int[]{1,1});
 
