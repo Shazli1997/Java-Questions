@@ -1,3 +1,4 @@
+
 public class lengthenc {
 
 
@@ -20,13 +21,21 @@ public class lengthenc {
     }
     public static void doTestPass()
     {
-        Assert.assertEquals("",rle(""));
-        Assert.assertEquals("a1",rle("a"));
-        Assert.assertEquals("a3",rle("aaa"));
-        Assert.assertEquals("a3b3a2d1",rle("aaabbbaad"));
+        if ("".equals(rle("")) &&
+                "a1".equals(rle("a")) &&
+                "a3".equals(rle("aaa"))) {
+            System.out.println("All Test Passed");
+        } else {
+            System.out.println("Test Case Failed");
+        }
     }
-    public static void main() throws InterruptedException
+    public static void main(String[] Args)
     {
-        JUnitCore.main("Solution");
+        doTestPass();
     }
 }
+
+
+
+
+
