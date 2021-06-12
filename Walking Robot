@@ -1,0 +1,75 @@
+import java.util.Arrays;
+
+public class WalkingRobot {
+    public static int[] walk(String a){
+
+        char[] input = a.toCharArray(); int[] cor = {0,0};
+        for (char c : input) {
+            if(Character.isDigit(c)){
+                continue;
+            }
+            if(c == 'U') {
+
+                cor[1] = cor[1] + 1;
+            }
+            if(c == 'D') {
+
+                cor[1] = cor[1] - 1;
+
+
+            }
+            if(c == 'L') {
+                    cor[0] = cor[0] - 1;
+            }
+            if(c == 'R') {
+
+                cor[0] = cor[0] + 1;
+            }
+
+        } return cor;
+    }
+
+    public static boolean doTestPass () {
+        boolean res = true;
+        {
+            String test="U";
+            int[] result=walk(test);
+            res&=Arrays.equals(result,new int[]{0,1});
+
+        }
+        {
+            String test="L";
+            int[] result=walk(test);
+            res&=Arrays.equals(result,new int[]{-1,0});
+
+        }
+        {
+            String test="ULDR";
+            int[] result=walk(test);
+            res&=Arrays.equals(result,new int[]{0,0});
+
+        }
+        {
+            String test="ULLLDUDUURLRLR";
+            int[] result=walk(test);
+            res&=Arrays.equals(result,new int[]{-2,2});
+
+        }
+       {
+            String test="ULDDRRUU";
+            int[] result=walk(test);
+            res&=Arrays.equals(result,new int[]{1,1});
+
+        }
+        if(res) {
+            System.out.println("All Test Case Passed");
+        }else {
+            System.out.println("Test Case Failed");
+        }
+        return res;
+    }
+    public static void main(String[] Args){
+
+        doTestPass();
+    }
+}
