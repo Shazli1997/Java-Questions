@@ -1,0 +1,54 @@
+import java.util.Arrays;
+import java.util.HashSet;
+
+public class UniqueTuple {
+
+    public static HashSet<String> uniqueTuples(String input,int no) {
+
+
+        HashSet<String> ans = new HashSet<>();
+
+        for (int index = 0; index < input.length() - no + 1; index++) {
+            ans.add(input.substring(index, index + no));
+        }
+
+
+       return ans;
+    }
+    public static boolean doTestPass() {
+        boolean testPassed = true;
+        HashSet<String> result=null;
+        String inputString="ab";
+        System.out.println("Running test 1");
+        result=uniqueTuples(inputString,2);
+        if (!result.contains("aa") && result.contains("ab")){
+            testPassed = false;
+        }else {
+            testPassed = true;
+        }
+
+        System.out.println("Running test 2");
+        String inputString1="abbcbde";
+        result=uniqueTuples(inputString1,2);
+      if (result.containsAll(Arrays.asList("ab", "bb", "bc", "cc", "cd", "de"))) {
+          testPassed = true;
+
+      }else {
+          testPassed = true;
+      }
+
+        if(testPassed) {
+            System.out.println("All tests passed");
+        }
+        else{
+            System.out.println("There is a test failure");
+        }
+        return testPassed;
+
+    }
+    public static void main(String[] Args) {
+
+        doTestPass();
+
+    }
+}
