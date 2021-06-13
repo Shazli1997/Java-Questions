@@ -1,16 +1,25 @@
-public class SubArray {
+import java.util.Arrays;
 
-    public static int subArrayExceedsSum(int input[], int target) {
+public class subarray{
+
+    private static int subArrayExceedsSum(final int[] input, int target) {
         int currentSum = 0;
         final int length = input.length;
         int minimumLength = length + 1;
         int start = 0, end = 0;
+        if(input.length == 0){
+            if(target ==0){
+                return 0;
+            }else {
+                return -1;
+            }
+        }
 
         while (end < length) {
             while (currentSum <= target && end < length)
                 currentSum += input[end++];
 
-            while (currentSum > target && start < length) {
+            while (currentSum >= target && start < length) {
                 if (end - start < minimumLength) minimumLength = end - start;
 
                 currentSum -= input[start++];
@@ -20,27 +29,22 @@ public class SubArray {
         return minimumLength > length ? -1 : minimumLength;
     }
 
-    public static void doTestPass() {
-            boolean result = true;
-            int[] arr = {1, 2, 3, 4};
-            result = result && subArrayExceedsSum(arr, 6) == 2;
-            result = result && subArrayExceedsSum(arr, 12) == -1;
-            result = result && subArrayExceedsSum(arr, 10) == 4;
-            result = result && subArrayExceedsSum(arr, 4) == 1;
-            int[] arr2 = {};
-            result = result && subArrayExceedsSum(arr2, 0) == 0;
-            result = result && subArrayExceedsSum(arr2, 2) == -1;
-            if (result) {
-                System.out.println("All tests passed");
-            } else
-                System.out.println("Some tests failed");
+   
+    public static void main(String[] args) {
+        boolean result = true;
+        int[] arr = {1, 2, 3, 4};
+        result = result && subArrayExceedsSum(arr, 6) == 2;
+        result = result && subArrayExceedsSum(arr, 12) == -1;
+        result = result && subArrayExceedsSum(arr, 10) == 4;
+        result = result && subArrayExceedsSum(arr, 4) == 1;
+        int[] arr2 = {};
+        result = result && subArrayExceedsSum(arr2, 0) == 0;
+        result = result && subArrayExceedsSum(arr2, 2) == -1;
 
+        if (result) {
+            System.out.println("All tests pass\n");
+        } else {
+            System.out.println("There are test failures\n");
         }
-
-        public static void main(String[] Args) {
-
-        doTestPass();
-
-
     }
-    }
+}
