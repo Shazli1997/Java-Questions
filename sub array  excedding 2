@@ -33,6 +33,12 @@ public class subarray {
 
     public static void main(String[] args) {
         boolean result = true;
+         int[] arr3 = {1, 2, 3, 4,5,6,7};
+        result = result && subArrayExceedsSum(arr3, 6) == 1;
+        result = result && subArrayExceedsSum(arr3, 12) == 2;
+        result = result && subArrayExceedsSum(arr3, 10) == 2;
+        result = result && subArrayExceedsSum(arr3, 13) == 2;
+        result = result && subArrayExceedsSum(arr3, 18) == 3;
         int[] arr = {1, 2, 3, 4};
         result = result && subArrayExceedsSum(arr, 6) == 2;
         result = result && subArrayExceedsSum(arr, 12) == -1;
