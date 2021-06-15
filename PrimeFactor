@@ -1,0 +1,51 @@
+import java.util.ArrayList;
+public class PrimeFac {
+    public static ArrayList<Integer> primeFactorization(int n) {
+       int k=n;
+        ArrayList<Integer> Alist = new ArrayList<>();
+        for(int i=2;i<=k;i++){
+            if(k==1){
+               break;
+            }else{
+                if((k%i) == 0 && Prime.prime(i)){
+                    k = k/i;
+                    Alist.add(i);
+                    i=i-1;
+                }
+            }
+        }
+        return Alist;
+
+    }
+    public static void doTestPass() {
+    boolean result = true;
+        ArrayList<Integer> list1 = new ArrayList<>();
+        list1.add(2);
+        list1.add(2);
+        list1.add(3);
+        list1.add(5);
+        result = result &&list1.equals(primeFactorization(60));
+        if(result){
+            System.out.println("All Test Cases Passed");
+        }else{
+            System.out.println("Test Case Failed");
+        }
+}
+    public static void main(String[] Args){
+		doTestPass();
+		}
+
+    class Prime {
+        static boolean prime(int n){
+            boolean re = true;
+            for(int j =2; j<n; j++){
+                int k = n % j;
+                if(k==0){
+                    re = false;
+                    break;
+                }
+            } return re;
+        }
+    }
+
+}
