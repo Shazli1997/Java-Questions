@@ -22,7 +22,6 @@ public static int Solution(int n) {
         result = result && (Solution(3)== 4);
         result = result && (Solution(4)== 7);
         result = result && (Solution(11)== 504);
-        result = result && (Solution(21)== 94351);
         result = result && (Solution(12)== 927);
 
         if(result){
