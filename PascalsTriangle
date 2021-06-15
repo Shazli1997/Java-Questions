@@ -1,31 +1,21 @@
 public class PascalT {
-
      public static boolean doTestPass() {
-
          Triangle Solution = new Triangle();
-
          boolean result = true;
-
          result = result && Solution.pascal(0,0)==1;
          result = result && Solution.pascal(2,1)==2;
          result = result && Solution.pascal(6,5)==6;
          result = result && Solution.pascal(8,4)==70;
          result = result && Solution.pascal(6,6)==1;
-
+         
          if(result) {
-
              System.out.println("All Test Cases Pass");
-
          }else {
-
              System.out.println("Test Case Fail");
-
          }return result;
 }
 public static void main(String[] Args) {
-
      doTestPass();
-
      }
 }
 class Triangle {
@@ -44,39 +34,7 @@ class Triangle {
                     c[i][j] = c[i-1][j-1] + c[i-1][j];
                 }
             }
-
-        }  return c[a][b];
-    }
-
-}
-
-public class PascalT {
-
-    public static boolean doTestPass() {
-
-        Triangle Solution = new Triangle();
-
-        boolean result = true;
-
-        result = result && Solution.pascal(0,0)==1;
-        result = result && Solution.pascal(2,1)==2;
-        result = result && Solution.pascal(6,5)==6;
-        result = result && Solution.pascal(8,4)==70;
-        result = result && Solution.pascal(6,6)==1;
-
-        if(result) {
-
-            System.out.println("All Test Cases Pass");
-
-        }else {
-
-            System.out.println("Test Case Fail");
-
-        }return result;
-    }
-    public static void main(String[] Args) {
-
-        doTestPass();
-
+        } return c[a][b];
     }
 }
+
