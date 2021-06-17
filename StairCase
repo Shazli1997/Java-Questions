@@ -1,28 +1,28 @@
 public class StairCase {
 
-public static int Solution(int n) {
-    int sum, count = 0;
-    int bmax = n / 2;
-    int cmax = n / 3;
-
+public static long Solution(int n) {
+    int sum; long count = 0;
     for (int i = 0; i <= n; i++) {
-        for (int j = 0; j <= bmax; j++) {
-            for (int k = 0; k <= cmax; k++) {
+        for (int j = 0; j <= n; j++) {
+            for (int k = 0; k <= n; k++) {
                 sum = i + (j * 2) + (k * 3);
                 if (sum == n) {
                     count = count + (fact.fact1(i + j + k) / (fact.fact1(i) * fact.fact1(j) * fact.fact1(k)));
                 }
             }
         }
-    }return count;
+    }
+    return count;
 }
     public static void doTestPass(){
         boolean result = true;
-
         result = result && (Solution(3)== 4);
         result = result && (Solution(4)== 7);
         result = result && (Solution(11)== 504);
         result = result && (Solution(12)== 927);
+        result = result && (Solution(13)== 1705);
+        result = result && (Solution(14)== 3136);
+        result = result && (Solution(21)== 223317);
 
         if(result){
             System.out.println("All Test Cases Passed");
@@ -33,15 +33,17 @@ public static int Solution(int n) {
     public static void main(String[] Args){
         doTestPass();
     }
+    
     public class fact {
 
-        static int fact1(int n)
-        {
-            int res = 1;
-            for (int i = 2; i <= n; i++){
-                res = res * i; }
-            return res;
-        }
-
+    static long fact1(int n)
+    {
+        long res = 1;
+        for (int i = 2; i <= n; i++){
+            res = res * i; }
+        return res;
     }
+
+}
+
 }
