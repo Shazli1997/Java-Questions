@@ -1,0 +1,84 @@
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+public class LowestPrice
+{
+    private static class Interval{
+        int startTime;
+        int endTime;
+        int price;
+        Interval(int startTime,
+                 int endTime,
+                 int price){
+            this.startTime = startTime;
+            this.endTime = endTime;
+            this.price = price;
+        }
+    }
+
+    private List<Interval> getLowestPrices(List<Interval> inputIntervals)
+    {
+        int length = inputIntervals.size(); int start,end = 1,price = 0,count = 0;
+        int[] a = new int[length];Interval[] arr = new Interval[3];
+        int[] b = new int[length];
+        int[] c = new int[length];
+        for(Interval normal : inputIntervals){
+                a[count] = normal.startTime;
+                b[count] = normal.endTime;
+                c[count] = normal.price;
+                count = count + 1;
+    }
+        int k = 0;
+       for(int i = a[0];i<b[length-1];i++) {
+            start = end;
+            if(k == (length-1)){
+                end = b[length-1];
+                price = c[length-1];
+                arr[k].startTime =  start;
+                arr[k].endTime =  end;
+                arr[k].price =  price;
+                System.out.println(start +"....."+ end +"....."+ price);
+                break;
+            }
+           else if(i == b[k]){
+                end = b[k];
+                price = c[k];
+                k=k+1;
+                arr[k].startTime =  start;
+                arr[k].endTime =  end;
+                arr[k].price =  price;
+            }else if(i == a[k+1] ){
+                if(c[k] > c[k+1]){
+                    end = i;
+                    price = c[k];
+                    k=k+1;
+                    arr[k].startTime =  start;
+                    arr[k].endTime =  end;
+                    arr[k].price =  price;
+                }
+
+                System.out.println(start +"....."+ end +"....."+ price);
+           }
+
+        }
+        return new ArrayList<>(Arrays.asList(arr));
+        }
+
+    private boolean doTestsPass()
+    {
+
+        Interval[] sampleInput={new Interval(1, 5, 20), new Interval(3, 8, 15), new Interval(7, 10, 8)};
+        Interval[] expectedOutput={new Interval(1, 3, 20), new Interval(3, 7, 15), new Interval(7, 10, 8)};
+        List<Interval> inputList=new ArrayList<>(Arrays.asList(sampleInput));
+        List<Interval> expectedList=new ArrayList<>(Arrays.asList(expectedOutput));
+        return expectedList.equals(getLowestPrices(inputList));
+    }
+    public static void main (String[] args) {
+       LowestPrice solution=new LowestPrice();
+        if(solution.doTestsPass())
+        { System.out.println("All Tests Passed");
+        }
+        else{
+            System.out.println("Test Failed");
+        }}}
