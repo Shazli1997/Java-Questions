@@ -1,16 +1,16 @@
 public class square {
-
     public static double squareRoot(double a){
-        double b = a,c,d;
-        for(int i= 1; i<=10;i++){
-            c = Math.sqrt(b);
-            d = .5 * (1/c);
-            b = (b - (c/d));
-
+        double c=1,d;
+        for(int i= 1; i< a;i++){
+            if((i*i)>=a){
+                c=i-1;
+            }
         }
-         return b;
+        for(int i= 1; i<=100;i++){
+            c = ((c*c)+a)/(2*c);
+        }
+         return c;
     }
-
     public static boolean doTestPass()
     {
         //Implement the following test caes.Add more test cases if possible.
@@ -20,7 +20,9 @@ public class square {
         for(int i=0;i<inputs.length;i++)
         {
             if(Math.abs(squareRoot(inputs[i])-expectedvalue[i])>threshold)
-            {System.out.printf("test failed for %f expected_value=%f;actual=%f\n",inputs[i],expectedvalue[i],squareRoot(inputs[i]));
+            {
+
+                System.out.printf("test failed for %f expected_value=%f;actual=%f\n",inputs[i],expectedvalue[i],squareRoot(inputs[i]));
                 return false;
             }
 
@@ -31,6 +33,4 @@ public class square {
     public static void main(String[] args) {
         doTestPass();
     }
-
-
 }
