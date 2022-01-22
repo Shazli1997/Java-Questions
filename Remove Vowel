@@ -1,0 +1,32 @@
+//REMOVE VOWEL FROM STRING
+package com.practice.coding;
+
+public class RemoveVowel {
+	public static void main(String args[])
+	{
+		String a="Education";
+		System.out.println("String-->"+a);
+		
+		char c[]=a.toCharArray();
+		char result;
+		char notVowel;
+		
+		for(int i=0;i<c.length;i++)
+		{
+			if(c[i]=='A' || c[i]=='a' ||c[i]=='i' || c[i]=='I' ||c[i]=='o'|| c[i]=='O' || c[i]=='u' || c[i]=='U' || c[i]=='e' || c[i]=='E')
+			{
+				result=c[i];
+			}
+			else
+			{
+				notVowel=c[i];
+				System.out.print(""+notVowel);
+				
+			}
+			
+		}
+		System.out.print(a);
+		
+	}
+
+}
